@@ -139,7 +139,7 @@
                 @if(!empty($custom_date))
                     <strong>{{ $custom_date }}</strong>
                 @else
-                    <strong>{{ $from_date }} – {{ $to_date }} {{ $hrMonth }} 2025</strong>
+                    <strong>{{ $from_date }}. – {{ $to_date }}. {{ $hrMonth }} 2025</strong>
                 @endif
             </div>
             <div class="invitation-title pt-2">SLUŽBENA POZIVNICA</div>
@@ -163,7 +163,7 @@
                 @if(!empty($custom_date))
                     dana {{ $custom_date }}.
                 @else
-                    od {{ $from_date }}. do {{ $to_date }}. {{ $hrMonth }} 2025. godine.
+                    od <strong>{{ $from_date }}.</strong> do <strong>{{ $to_date }}. {{ $hrMonth }} 2025. godine.</strong>
                 @endif
                 Festival se održava na prekrasnoj obali Ohridskog jezera, u gradovima Ohridu i Strugi – turističkim biserima koji su u ovo doba godine ispunjeni stranim posjetiteljima.
             </p>
@@ -179,7 +179,7 @@
             <tr>
                 <td style="padding-left: 1cm !important;">
                     Srdačno,<br>
-                    Zdravko Banar<br>
+                    <strong>Zdravko Banar<br></strong>
                     Organizator festivala
                 </td>
                 <td style="text-align:left;">

@@ -139,7 +139,7 @@
                 @if(!empty($custom_date))
                     <strong>w dniu {{ $custom_date }}</strong>
                 @else
-                    <strong>od {{ $from_date }} do {{ $to_date }} {{ $plMonth }} 2025</strong>
+                    <strong>od {{ $from_date }}. do {{ $to_date }}. {{ $plMonth }} 2025</strong>
                 @endif
             </div>
             <div class="invitation-title pt-2">OFICJALNE ZAPROSZENIE</div>
@@ -163,7 +163,7 @@
                 @if(!empty($custom_date))
                     w dniu {{ $custom_date }}.
                 @else
-                    od {{ $from_date }}. do {{ $to_date }}. {{ $plMonth }} 2025.
+                    od <strong>{{ $from_date }}.</strong> do <strong>{{ $to_date }}. {{ $plMonth }} 2025.</strong>
                 @endif
                 Festiwal odbywa się na malowniczym brzegu Jeziora Ochrydzkiego, w miastach Ochryd i Struga – perełkach turystyki,
                 które w tym okresie roku są pełne zagranicznych turystów.
@@ -180,7 +180,9 @@
             <tr>
                 <td style="padding-left: 1cm !important;">
                     Z poważaniem,<br>
+                    <strong>
                     Zdravko Banar<br>
+                    </strong>
                     Organizator festiwalu
                 </td>
                 <td style="text-align:left;">

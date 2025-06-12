@@ -139,7 +139,7 @@
                 @if(!empty($custom_date))
                     <strong>на {{ $custom_date }}</strong>
                 @else
-                    <strong>от {{ $from_date }} до {{ $to_date }} {{ $bgMonth }} 2025</strong>
+                    <strong>от {{ $from_date }}. до {{ $to_date }}. {{ $bgMonth }} 2025</strong>
                 @endif
             </div>
             <div class="invitation-title pt-2">ОФИЦИАЛНА ПОКАНА</div>
@@ -163,7 +163,7 @@
                 @if(!empty($custom_date))
                     на {{ $custom_date }}.
                 @else
-                    от {{ $from_date }} до {{ $to_date }} {{ $bgMonth }} 2025 г.
+                    от <strong>{{ $from_date }}.</strong> до <strong>{{ $to_date }}.{{ $bgMonth }} 2025 г. </strong> 
                 @endif
                 Фестивалът се провежда на прекрасния бряг на Охридското езеро, в градовете Охрид и Струга – туристически бисери,
                 които през този период на годината са пълни със чуждестранни посетители.
@@ -180,7 +180,7 @@
             <tr>
                 <td style="padding-left: 1cm !important;">
                     С уважение,<br>
-                    Здравко Банар<br>
+                <strong> Здравко Банар<br></strong> 
                     Организатор на фестивала
                 </td>
                 <td style="text-align:left;">

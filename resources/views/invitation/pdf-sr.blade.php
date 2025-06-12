@@ -139,7 +139,7 @@
                 @if(!empty($custom_date))
                     <strong>{{ $custom_date }}</strong>
                 @else
-                    <strong>{{ $from_date }} – {{ $to_date }} {{ $srMonth }} 2025</strong>
+                    <strong>{{ $from_date }}. – {{ $to_date }}. {{ $srMonth }} 2025</strong>
                 @endif
             </div>
             <div class="invitation-title pt-2">ЗВАНИЧНА ПОЗИВНИЦА</div>
@@ -163,7 +163,7 @@
                 @if(!empty($custom_date))
                     дана {{ $custom_date }}.
                 @else
-                    од {{ $from_date }}. до {{ $to_date }}. {{ $srMonth }} 2025. године.
+                    од <strong>{{ $from_date }}.</strong> до <strong>{{ $to_date }}. {{ $srMonth }} 2025. године.</strong>
                 @endif
                 Фестивал се одржава на прелепој обали Охридског језера, у градовима Охриду и Струги – туристичким бисерима који су у овом периоду године пуни страних посетилаца.
             </p>

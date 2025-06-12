@@ -139,7 +139,7 @@
                 @if(!empty($custom_date))
                     <strong>{{ $custom_date }}</strong>
                 @else
-                    <strong>{{ $from_date }} – {{ $to_date }} {{ $trMonth }} 2025</strong>
+                    <strong>{{ $from_date }}. – {{ $to_date }}. {{ $trMonth }} 2025</strong>
                 @endif
             </div>
             <div class="invitation-title pt-2">RESMİ DAVETİYE</div>
@@ -162,7 +162,7 @@
                 @if(!empty($custom_date))
                     tarihinde {{ $custom_date }}.
                 @else
-                    {{ $from_date }} – {{ $to_date }} {{ $trMonth }} 2025 tarihleri arasında.
+                <strong>{{ $from_date }}. – {{ $to_date }}. {{ $trMonth }} 2025</strong> tarihleri arasında.
                 @endif
                 Festival, muhteşem Ohri Gölü kıyısında, Ohri ve Struga şehirlerinde düzenlenmektedir – bu dönem yabancı turistlerle dolup taşan turistik incilerdir.
             </p>
@@ -178,7 +178,9 @@
             <tr>
                 <td style="padding-left: 1cm !important;">
                     Saygılarımla,<br>
+                    <strong>
                     Zdravko Banar<br>
+                    </strong>
                     Festival Organizasyonu
                 </td>
                 <td style="text-align:left;">

@@ -129,7 +129,7 @@
                 @if(!empty($custom_date))
                    <strong> {{ $custom_date }} </strong>
                 @else
-                    <strong>{{ $from_date }} – {{ $to_date }} {{ $mkMonth }} 2025</strong> 
+                    <strong>{{ $from_date }}. – {{ $to_date }}. {{ $mkMonth }} 2025</strong> 
                 @endif
             </div>
             <div class="invitation-title pt-2">ОФИЦИЈАЛНА ПОКАНА</div>
@@ -153,7 +153,7 @@
                 @if(!empty($custom_date))
                     на {{ $custom_date }}.
                 @else
-                    од {{ $from_date }} до {{ $to_date }} {{ $mkMonth }} 2025 година.
+                    од <strong>{{ $from_date }}.</strong> до <strong>{{ $to_date }}. {{ $mkMonth }} 2025 година.</strong>
                 @endif
                 Фестивалот се одржува на прекрасниот брег на Охридското Езеро, во градовите <strong>Охрид</strong> и <strong>Струга</strong> – туристички бисери
                 кои во овој период се полни со странски посетители.

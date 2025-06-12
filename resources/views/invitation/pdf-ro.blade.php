@@ -139,7 +139,7 @@
                 @if(!empty($custom_date))
                     <strong>în data de {{ $custom_date }}</strong>
                 @else
-                    <strong>de la {{ $from_date }} până la {{ $to_date }} {{ $roMonth }} 2025</strong>
+                    <strong>de la {{ $from_date }}. până la {{ $to_date }}. {{ $roMonth }} 2025</strong>
                 @endif
             </div>
             <div class="invitation-title pt-2">INVITAȚIE OFICIALĂ</div>
@@ -163,7 +163,7 @@
                 @if(!empty($custom_date))
                     în data de {{ $custom_date }}.
                 @else
-                    de la {{ $from_date }}. până la {{ $to_date }}. {{ $roMonth }} 2025.
+                    de la <strong>{{ $from_date }}.</strong> până la <strong>{{ $to_date }}. {{ $roMonth }} 2025.</strong>
                 @endif
                 Festivalul are loc pe malurile minunate ale lacului Ohrid, în orașele Ohrid și Struga – perle turistice
                 care în această perioadă a anului sunt pline de vizitatori străini.
@@ -181,7 +181,9 @@
             <tr>
                 <td style="padding-left: 1cm !important;">
                     Cu stimă,<br>
+                    <strong>
                     Zdravko Banar<br>
+                    </strong>
                     Organizatorul festivalului
                 </td>
                 <td style="text-align:left;">

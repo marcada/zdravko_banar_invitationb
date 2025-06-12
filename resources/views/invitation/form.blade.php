@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Generate Invitation</title>
+    <title>Здравко Банар</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
@@ -10,15 +10,15 @@
 
 <div class="container d-flex justify-content-center align-items-center">
     <div class="col-6">
-        <h2 class="mb-4 text-center">Generate Festival Invitation</h2>
+        <h2 class="mb-4 text-center">Генерирај покана за фестивал</h2>
 
         <form method="POST" action="{{ route('invitation.generate') }}" class="card p-4 shadow">
             @csrf
 
             <div class="mb-3">
-                <label for="language" class="form-label">Language:</label>
+                <label for="language" class="form-label">Јазик на поканата:</label>
                 <select name="language" id="language" class="form-select" required>
-                    <option value="">-- Choose Language --</option>
+                    <option value="">-- Избери јазик --</option>
                     <option value="en">English</option>
                     <option value="mk">Macedonian</option>
                     <option value="sr">Serbian</option>
@@ -32,41 +32,41 @@
             </div>
 
             <div class="mb-3">
-                <label for="festival_name" class="form-label">Choose Festival:</label>
+                <label for="festival_name" class="form-label">Избери фестивал:</label>
                 <select id="festival_name" class="form-select" required>
-                    <option value="">-- Select Festival --</option>
+                    <option value="">-- Избери фестивал --</option>
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="festival_id" class="form-label">Choose Date:</label>
                 <select name="festival_id" id="festival_id" class="form-select" required disabled>
-                    <option value="">-- Select Date --</option>
-                    <option value="custom">Other / Custom Dates</option>
+                    <option value="">-- Избери термин --</option>
+                    <option value="custom">Изменет термин</option>
                 </select>
             </div>
 
             <div class="mb-3 d-none" id="customDateGroup">
-                <label for="custom_date" class="form-label">Select Custom Date Range:</label>
+                <label for="custom_date" class="form-label">Избери ОД - ДО:</label>
                 <input type="text" name="custom_date" id="custom_date" class="form-control" placeholder="Select date range" autocomplete="off">
             </div>
 
             <div class="mb-3">
-                <label for="ensemble" class="form-label">Ensemble Name:</label>
+                <label for="ensemble" class="form-label">Име на ансамблот:</label>
                 <input type="text" name="ensemble" id="ensemble" class="form-control" required>
             </div>
 
             <div class="mb-3">
-                <label for="director" class="form-label">Director (optional):</label>
+                <label for="director" class="form-label">Второ поле [може: Директор/Раководител (незадолжително)]:</label>
                 <input type="text" name="director" id="director" class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="leader" class="form-label">Leader (optional):</label>
+                <label for="leader" class="form-label">Трето поле [може: Директор/Раководител (незадолжително)]</label>
                 <input type="text" name="leader" id="leader" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">Generate PDF</button>
+            <button type="submit" class="btn btn-primary w-100">Генерирај ПОКАНА</button>
         </form>
     </div>
 </div>

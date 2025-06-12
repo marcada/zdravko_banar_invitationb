@@ -16,14 +16,21 @@ return new class extends Migration
             $table->string('name_mk');
             $table->string('name_en');
             $table->string('name_sr');
-            $table->string('slug')->unique(); // ⬅️ ова го додаваме
+            $table->string('name_hr')->nullable();
+            $table->string('name_bg')->nullable();
+            $table->string('name_pl')->nullable();
+            $table->string('name_uk')->nullable();
+            $table->string('name_ro')->nullable();
+            $table->string('name_tr')->nullable();
+            $table->string('slug')->unique();
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('location')->nullable();
-            $table->year('year');
+            $table->string('location');
+            $table->integer('year');
             $table->timestamps();
         });
     }
+    
     
 
     /**
