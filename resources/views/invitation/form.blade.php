@@ -21,7 +21,13 @@
                     <option value="">-- Choose Language --</option>
                     <option value="en">English</option>
                     <option value="mk">Macedonian</option>
-                    <option value="sr">Serbian/Croatian</option>
+                    <option value="sr">Serbian</option>
+                    <option value="bg">Bulgarian</option>
+                    <option value="hr">Croatian</option>
+                    <option value="pl">Polish</option>
+                    <option value="ro">Romanian</option>
+                    <option value="tr">Turkish</option>
+                    <option value="uk">Ukrainian</option>
                 </select>
             </div>
 
@@ -80,7 +86,7 @@
         const uniqueNames = {};
 
         festivals.forEach(f => {
-            const label = f[`name_${lang}`];
+            const label = f[`name_${lang}`] || f.name_en;
             if (!uniqueNames[label]) uniqueNames[label] = [];
             uniqueNames[label].push(f);
         });
@@ -96,7 +102,7 @@
 
     festivalNameSelect.addEventListener('change', function () {
         const lang = languageSelect.value;
-        const selected = festivals.filter(f => f[`name_${lang}`] === this.value);
+        const selected = festivals.filter(f => (f[`name_${lang}`] || f.name_en) === this.value);
 
         festivalIdSelect.innerHTML = '<option value="">-- Select Date --</option>';
         selected.forEach(f => {
