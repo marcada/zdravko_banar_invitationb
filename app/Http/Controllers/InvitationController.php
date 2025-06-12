@@ -32,7 +32,7 @@ class InvitationController extends Controller
             'ensemble'    => 'required|string|max:255',
             'director'    => 'nullable|string|max:255',
             'leader'      => 'nullable|string|max:255',
-            'language'    => 'required|in:mk,en,sr',
+            'language'    => 'required|in:mk,en,sr,bg,hr,pl,ro,tr,uk',
             'custom_date' => 'nullable|string|max:255',
         ]);
 
@@ -65,8 +65,8 @@ class InvitationController extends Controller
             // Име според јазик
             $data['festival_name'] = match ($request->language) {
                 'mk' => $festival->name_mk,
-                'en' => $festival->name_en,
                 'sr' => $festival->name_sr,
+                default => $festival->name_en,
             };
 
             // Датуми
@@ -86,6 +86,12 @@ class InvitationController extends Controller
             'mk' => 'invitation.pdf-mk',
             'en' => 'invitation.pdf-en',
             'sr' => 'invitation.pdf-sr',
+            'bg' => 'invitation.pdf-bg',
+            'hr' => 'invitation.pdf-hr',
+            'pl' => 'invitation.pdf-pl',
+            'ro' => 'invitation.pdf-ro',
+            'tr' => 'invitation.pdf-tr',
+            'uk' => 'invitation.pdf-uk',
         };
 
         // 6. Генерирање PDF
