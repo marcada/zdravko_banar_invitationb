@@ -10,9 +10,9 @@
 
 <div class="container d-flex justify-content-center align-items-center">
     <div class="col-6">
-        <h2 class="mb-4 text-center">Генерирај покана за фестивал</h2>
+        <h2 class="mb-4 text-center"><strong>Здравко Банар,</strong> <br>овде можеш да генерираш <br>покана за фестивал</h2>
 
-        <form method="POST" action="{{ route('invitation.generate') }}" class="card p-4 shadow">
+        <form method="POST" action="{{ route('invitation.generate') }}" target="_blank" id="invitationForm" class="card p-4 shadow">
             @csrf
 
             <div class="mb-3">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="festival_id" class="form-label">Choose Date:</label>
+                <label for="festival_id" class="form-label">Избери термин:</label>
                 <select name="festival_id" id="festival_id" class="form-select" required disabled>
                     <option value="">-- Избери термин --</option>
                     <option value="custom">Изменет термин</option>
@@ -127,6 +127,21 @@
         const date = new Date(dateStr);
         return date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: year ? 'numeric' : undefined }).replace(',', '');
     }
+
+    //Ресетирање форма
+    document.getElementById('invitationForm').addEventListener('submit', function () {
+    // Дај му малку време да се отвори PDF-от
+    setTimeout(() => {
+        this.reset();
+
+        // Reset dropdowns
+        festivalNameSelect.innerHTML = '<option value="">-- Избери фестивал --</option>';
+        festivalIdSelect.innerHTML = '<option value="">-- Избери термин --</option>';
+        festivalIdSelect.disabled = true;
+        customDateGroup.classList.add('d-none');
+    }, 500);
+});
+
 </script>
 
 </body>

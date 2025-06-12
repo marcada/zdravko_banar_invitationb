@@ -6,11 +6,20 @@ use App\Models\Festival;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
+use Illuminate\Routing\Controller;
 
 class InvitationController extends Controller
 {
     /**
-     * Покажува формата за избор на фестивал и внес на податоци
+     * Сите методи во овој контролер се достапни само за најавени корисници.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Прикажува форма за избор на фестивал и внес на податоци.
      */
     public function create()
     {
@@ -22,11 +31,11 @@ class InvitationController extends Controller
     }
 
     /**
-     * Генерира PDF покана на избран јазик и основа на податоците.
+     * Генерира PDF покана на избран јазик врз основа на податоците.
      */
     public function generate(Request $request)
     {
-        // 1. Валидација на влез
+        // 1. Валидација
         $request->validate([
             'festival_id' => 'required',
             'ensemble'    => 'required|string|max:255',
@@ -36,7 +45,7 @@ class InvitationController extends Controller
             'custom_date' => 'nullable|string|max:255',
         ]);
 
-        // 2. Почетни податоци
+        // 2. Подготовка на податоци
         $data = [
             'ensemble'      => $request->ensemble,
             'director'      => $request->director,
@@ -49,7 +58,7 @@ class InvitationController extends Controller
             'to_date'       => null,
         ];
 
-        // 3. Ако е custom датум (не е поврзан со festival од DB)
+        // 3. Custom датум (без фестивал од база)
         if ($request->festival_id === 'custom') {
             $data['dateRange'] = $request->custom_date
                 ? "<strong>{$request->custom_date}</strong>"
@@ -57,31 +66,28 @@ class InvitationController extends Controller
             $data['festival_name'] = 'Custom Festival';
         }
 
-        // 4. Ако е валиден фестивал од базата
+        // 4. Стандарден фестивал
         else {
             $festival = Festival::findOrFail($request->festival_id);
             $data['festival'] = $festival;
 
-            // Име според јазик
             $data['festival_name'] = match ($request->language) {
                 'mk' => $festival->name_mk,
                 'sr' => $festival->name_sr,
                 default => $festival->name_en,
             };
 
-            // Датуми
             $start = Carbon::parse($festival->start_date);
             $end   = Carbon::parse($festival->end_date);
 
             $data['from_date'] = $start->format('d');
             $data['to_date']   = $end->format('d');
 
-            $month = $end->translatedFormat('F'); // auto-localized via Carbon
-
+            $month = $end->translatedFormat('F'); // e.g. "September"
             $data['dateRange'] = "<strong>{$start->format('d')} - {$end->format('d')} {$month} {$end->year}</strong>";
         }
 
-        // 5. Избор на Blade view
+        // 5. Избор на view според јазик
         $view = match ($request->language) {
             'mk' => 'invitation.pdf-mk',
             'en' => 'invitation.pdf-en',
@@ -94,7 +100,7 @@ class InvitationController extends Controller
             'uk' => 'invitation.pdf-uk',
         };
 
-        // 6. Генерирање PDF
+        // 6. Генерирање на PDF
         $pdf = Pdf::loadView($view, $data)
             ->setPaper('a4', 'portrait')
             ->setOptions([
